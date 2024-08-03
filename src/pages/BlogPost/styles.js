@@ -4,6 +4,7 @@ export const BlogContainer = styled.div`
     display: flex;
     align-items: center;
     margin-top: -5rem;
+    flex-direction: column;
 `;
 
 export const BlogContainerHeader = styled.div`
@@ -66,4 +67,10 @@ export const BlogContainerHeader = styled.div`
             }
         }
     }
+`;
+
+export const BlogContainerConent = styled.div`
+    margin-top: 1rem;
+    padding: 2rem;
+    width: 60rem;
 `;
