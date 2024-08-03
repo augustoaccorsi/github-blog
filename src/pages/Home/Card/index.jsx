@@ -3,7 +3,8 @@ import { CardContainer } from './styles';
 import { formatDistanceToNow } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 
-const getFormattedBody = (body) => {
+const getFormattedBody = (entry) => {
+    const body = entry.split('#').join('');
     if (body.length > 100) {
         const newBody = body.slice(0, 300);
         return newBody.concat('...');
