@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardContainer } from './styles';
 import { formatDistanceToNow } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 const getFormattedBody = (body) => {
     if (body.length > 100) {
@@ -10,14 +11,20 @@ const getFormattedBody = (body) => {
     return body;
 };
 
-const Card = ({ title, body, updated_at }) => {
+const Card = ({ title, body, updated_at, number }) => {
+    const navigate = useNavigate();
+
     const formattedBody = getFormattedBody(body);
     const distanceFromNow = formatDistanceToNow(updated_at, {
         addSuffix: true,
     });
 
+    const handleIssueClick = () => {
+        navigate('/blogPost/'.concat(number));
+    };
+
     return (
-        <CardContainer>
+        <CardContainer onClick={handleIssueClick}>
             <div>
                 <h3>{title}</h3>
                 <span>{distanceFromNow}</span>

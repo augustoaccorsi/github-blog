@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home/index';
-import Post from '../pages/Post/index';
+import BlogPost from '../pages/BlogPost/index';
 import DefaultLayout from '../layouts/DefaultLayout/index';
 
 const Router = () => {
@@ -9,7 +9,7 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<DefaultLayout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/post" element={<Post />} />
+                <Route path="/blogPost/:issueNumber" element={<BlogPost />} />
             </Route>
         </Routes>
     );

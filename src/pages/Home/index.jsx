@@ -42,6 +42,7 @@ const Home = () => {
                         title={issue.title}
                         body={issue.body}
                         updated_at={issue.updated_at}
+                        number={issue.number}
                     />
                 ))}
             </PostContainer>
