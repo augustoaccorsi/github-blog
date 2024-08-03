@@ -6,7 +6,7 @@ export const SummaryContainer = styled.div`
     margin: 0 auto;
 
     height: 13rem;
-    width: 54rem;
+    width: 60rem;
 
     border-radius: 8px;
 
@@ -23,7 +23,7 @@ export const SummaryContainer = styled.div`
         grid-template-columns: 1fr 1fr;
         align-items: center;
 
-        width: 37rem;
+        width: 45rem;
 
         h1 {
             color: ${(props) => props.theme['base-title']};

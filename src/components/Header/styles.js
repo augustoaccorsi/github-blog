@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
 
-    background: ${(props) => props.theme['base-post']};
+    background: ${(props) => props.theme['base-profile']};
     height: 17rem;
 `;
 

@@ -3,20 +3,38 @@ import { API } from '../lib/axios';
 
 export const GithubContext = createContext();
 
-const GithubProvider = (props) => {
-    const [userData, serUserData] = useState();
+const REPO = 'augustoaccorsi/github-blog';
 
-    const setUserData = async () => {
-        const response = await API.get('');
+const GithubProvider = (props) => {
+    const [userData, serUserData] = useState({});
+    const [issues, setIssues] = useState([]);
+
+    const fetchUserData = async () => {
+        const response = await API.get('/users/augustoaccorsi');
         serUserData(response.data);
     };
 
+    const fetchIssues = async (query = '') => {
+        const fullQuery = query.concat(' ').concat('repo:').concat(REPO);
+        const response = await API.get('search/issues', {
+            params: {
+                q: fullQuery,
+            },
+        });
+        setIssues(response.data.items);
+    };
+
     useEffect(() => {
-        setUserData();
+        fetchUserData();
+        fetchIssues();
     }, []);
 
+    const searchForIssues = (query) => {
+        fetchIssues(query);
+    };
+
     return (
-        <GithubContext.Provider value={{ userData }}>
+        <GithubContext.Provider value={{ userData, issues, searchForIssues }}>
             {props.children}
         </GithubContext.Provider>
     );
