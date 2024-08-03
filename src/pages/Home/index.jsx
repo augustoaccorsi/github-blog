@@ -1,7 +1,12 @@
 import React from 'react';
+import Summary from './Summary/index';
 
 const Home = () => {
-    return <div>Home</div>;
+    return (
+        <div>
+            <Summary />
+        </div>
+    );
 };
 
 export default Home;
